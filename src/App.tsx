@@ -1,14 +1,18 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ClickCounter } from './ClickCounter';
+import Dashboard from './pages/Dashboard';
+import Deliveries from './pages/Deliveries';
+import Main from './pages/Main';
 import './styles.css'
-import IMAGE from './image.png';
-import LOGO from './react.svg'
+
 export const App = () => {
   return (    
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ClickCounter />} />
+          <Route path="/" element={<Main />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/deliveries" element={<Deliveries />} />
+          <Route path='*' element={<h1>404 <br/>Ресурс не найден</h1>} />
         </Routes>
       </BrowserRouter>
     </div>
