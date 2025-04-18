@@ -26,14 +26,12 @@ const App: React.FC = () => {
  </ul>
  </nav>
  </header>
- 
  <main className="app-content">
  <Routes>
  <Route path="/" element={<DashboardPage />} />
  <Route path="/deliveries" element={<DeliveriesPage />} />
  </Routes>
  </main>
- 
  <ReactQueryDevtools initialIsOpen={false} />
  </div>
  </Router>
