@@ -1,14 +1,11 @@
-import Header from "./Header";
-import Footer from "./Footer";
-import Linked from "./Link";
+import  Dashboard from "./DashboardPage";
 
-export default function Main() {
+export const MainPage = () => {
   return (
-    <>
-      <Header />
-      <Linked />
-        <h1>Main</h1>
-      <Footer />
-    </>
+    <div className="main">
+      <Dashboard />
+    </div>
   );
 };
+
+export default MainPage;

@@ -1,7 +1,9 @@
-export default function Header() {
+export const Header = () => {
   return (
-    <>
-      <h1>Header</h1>
-    </>
-  );
-};
+    <div className="header">
+      <h1>Dasboard</h1>
+    </div>
+  )
+} 
+
+export default Header;
