@@ -6,6 +6,9 @@ import DeliveriesPage from './pages/DeliveriesPage';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import store from './store';
+import Header from './pages/Header';
+import Footer from './pages/Footer';
+import MainPage from './pages/Main';
 const queryClient = new QueryClient();
 
 const App: React.FC = () => {
@@ -13,25 +16,14 @@ const App: React.FC = () => {
  <Provider store={store}>
  <QueryClientProvider client={queryClient}>
  <Router>
+ <Header />
  <div className="app">
- <header className="app-header">
- <nav>
- <ul>
- <li>
- <a href="/">Dashboard</a>
- </li>
- <li>
- <a href="/deliveries">Список доставок</a>
- </li>
- </ul>
- </nav>
- </header>
- <main className="app-content">
+ <MainPage />
  <Routes>
  <Route path="/" element={<DashboardPage />} />
  <Route path="/deliveries" element={<DeliveriesPage />} />
  </Routes>
- </main>
+ <Footer />
  <ReactQueryDevtools initialIsOpen={false} />
  </div>
  </Router>

@@ -7,7 +7,7 @@ interface MetricCardProps {
   format?: 'percent' | 'number' | 'time';
 }
 
-const MetricCard: React.FC<MetricCardProps> = ({ title, value, isLoading, format }) => {
+const MetricCard: React.FC<MetricCardProps> = ({ title, value, isLoading }) => {
   return (
     <div className="metric-card">
       <h3>{title}</h3>

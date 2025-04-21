@@ -1,0 +1,31 @@
+$font-size1: 3rem;
+$font-color1: lch(23.38% 41.77 290.16);
+$font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-weight: 500;
+$background-color1: lch(66.62% 0.01 296.81);
+$opacity1: 0.5; 
+$border-solid: 1px solid black;
+$border_radius1: 10px;
+$border_radius2: 20px;
+
+
+@media screen and (max-width: 500px)  {
+  @media screen and (orientation: portrait) {
+    
+  
+  #root {
+    overflow-x: hidden;
+    overflow: auto;
+  }
+  
+  
+  .link {
+    color: $font-color1;
+    font-size: $font-size1;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  }
+  }
