@@ -20,14 +20,14 @@ const DeliveryFilters: React.FC<DeliveryFiltersProps> = ({ deliveryServices }) =
 
   return (
     <div className="delivery-filters">
-      <select onChange={handleStatusChange}>
+      <select className='handle-status-change' onChange={handleStatusChange}>
         <option value="">All Statuses</option>
         <option value="pending">Pending</option>
         <option value="in_transit">In Transit</option>
         <option value="delivered">Delivered</option>
         <option value="problem">Problem</option>
       </select>
-      <select onChange={handleServiceChange}>
+      <select className='handle-service-change' onChange={handleServiceChange}>
         <option value="">
           All Services
         </option>

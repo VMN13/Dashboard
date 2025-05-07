@@ -13,7 +13,7 @@ const TimeRangeSelector: React.FC = () => {
   };
 
   return (
-    <select value={timeRange} onChange={handleChange}>
+    <select className='choice' value={timeRange} onChange={handleChange}>
       <option value="today">Today</option>
       <option value="week">Current Week</option>
       <option value="month">Current Month</option>

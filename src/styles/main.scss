@@ -58,6 +58,7 @@ th {
   padding: $padding30px;
   background-image: url("../public/unsplash.jpg");
   text-align: center;
+  border-radius: $border_radius20px;
 }
 
 td {
@@ -117,21 +118,24 @@ h1, h2 {
   justify-content: center;
   align-items: center;
   
+  backdrop-filter: blur(60px);
   .metric-card {
     margin: auto;
     width: auto;
-    background-color: rgba(130, 130, 130, 0);
+    background-color: rgba(0, 0, 0, 0);
     backdrop-filter: blur(20px);
     border-radius: $border_radius20px;
     padding: 10px;
     opacity: $opacity_09;
     transition: 0.5s;
+    opacity: $opacity_12;
     cursor: default;
     &:hover {
       opacity: $opacity_12;
     }
   }
   .dashboard-metrics-cards {
+    
     background-image: url("../public/unsplash.jpg");
     background-size: cover;
     background-position: center;
@@ -151,8 +155,8 @@ h1, h2 {
     border-radius: $border_radius20px;
     padding: $padding10px;
     border-color: $border-colorblue;
-    padding-left: 30px;
-    padding-right: 30px; 
+    padding-left: 0px;
+    padding-right: 0px; 
     transition: all 1s;
     cursor:auto;
    
@@ -161,11 +165,40 @@ h1, h2 {
   
 }
 
+.choice {
+  font-size: medium;
+  cursor: pointer;
+  padding: $padding10px;
+  border: $border_radius20px;
+  &:hover {
+    text-decoration: none;
+    border: $border_radius20px;
+  }
+}
+
+.delivery-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: $margintop20px;
+  margin-bottom: $marginbottom20px;
+  align-content: center;
+  .handle-status-change {
+    font-size: $font-size2rem;
+  }
+  .handle-service-change {
+    font-size: $font-size2rem;
+  }
+}
+
+
+
 
 canvas.status-chart {
   cursor: pointer;
   width: 400px !important;
   height: 400px !important;
+  
 }
 
 .link {
