@@ -1,7 +1,14 @@
+import Assets from '../assets/schedule.svg';
+import { Link } from "react-router-dom";
 export const Header = () => {
   return (
     <div className="header">
-      <h1>Dasboard Deliveries</h1>
+      <Link to="/">
+      <h1>
+        Dasboard Panel
+        <img src={Assets} alt="logo" height={50} width={50} />
+      </h1>
+      </Link>
     </div>
   )
 } 

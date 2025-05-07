@@ -8,6 +8,7 @@ const initialState: DashboardUiState = {
   dashboardTimeRange: 'today',
 };
 
+
 const dashboardUiSlice = createSlice({
   name: 'dashboardUi',
   initialState,

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface DeliveryFilters {
-  status?: string;
+  status?: 'pending' | 'in_transit' | 'delivered' | 'problem'
   deliveryService?: string;
 }
 
@@ -10,7 +10,9 @@ interface DeliveriesUiState {
 }
 
 const initialState: DeliveriesUiState = {
-  deliveryFilters: {},
+  deliveryFilters: {
+
+  },
 };
 
 const deliveriesUiSlice = createSlice({
@@ -18,7 +20,8 @@ const deliveriesUiSlice = createSlice({
   initialState,
   reducers: {
     setDeliveryFilter(state, action: PayloadAction<DeliveryFilters>) {
-      state.deliveryFilters = { ...state.deliveryFilters, ...action.payload };
+      state.deliveryFilters = 
+        { ...state.deliveryFilters, ...action.payload };
     },
   },
 });

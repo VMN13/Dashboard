@@ -4,8 +4,18 @@ import { Link } from "react-router-dom";
 export const MainPage = () => {
   return (
     <div className="main">
-      <Link to="/deliveries">Deliveries</Link>
-      <Link to="/">Dashboard</Link>
+      <div>
+      <Link 
+        className="link" 
+        to="/deliveries">Deliveries
+      </Link>
+      </div>
+      <div>
+      <Link 
+        className="link" 
+        to="/">Dashboard
+      </Link>
+      </div>
     </div>
   );
 };

@@ -9,14 +9,36 @@ $border_radius1: 10px;
 $border_radius2: 20px;
 
 
-@media screen and (max-width: 500px)  {
+@media screen and (max-width: 390px)  {
   @media screen and (orientation: portrait) {
     
+
+    html {
+      width: 41vh;
+      margin-left: 20px;
+      overflow-x: none;
+    }
   
   #root {
     overflow-x: hidden;
     overflow: auto;
   }
+
+ 
+  .dashboard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+
+
   
   
   .link {

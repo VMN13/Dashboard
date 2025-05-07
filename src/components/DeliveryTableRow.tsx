@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Delivery } from '../api/logisticsApi';
 
 interface DeliveryTableRowProps {
   delivery: Delivery;
 }
 
-const DeliveryTableRow: React.FC<DeliveryTableRowProps> = React.memo(({ delivery }) => {
+const DeliveryTableRow: React.FC<DeliveryTableRowProps> = React.memo(({ delivery,  }) => {
   return (
     <tr>
       <td>{delivery.orderId}</td>

@@ -9,53 +9,57 @@ export interface Delivery {
   courierStatus?: string;
 }
 
-export interface DeliveryFilters {
-  status?: string;
-  deliveryService?: string;
-  dateRange?: string;
-}
-
-export const fetchDeliveriesList = async (filters: DeliveryFilters) => {
-  // Имитация запроса к API
-  return new Promise<{ deliveries: Delivery[]; totalCount: number }>((resolve) => {
+export const fetchDeliveriesList = async (filters: any): Promise<{deliveries: Delivery[]; totalCount: number }> => {
+  return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
         deliveries: [
           {
             id: '1',
-            orderId: '123',
-            status: 'in_transit',
+            orderId: '12345',
+            status: 'pending',
             destination: 'New York',
-            estimatedDeliveryTime: '2023-06-01 10:00',
-            actualDeliveryTime: '2023-06-01 11:00',
-            deliveryService: 'UPS',
-            courierStatus: 'On the way',
+            estimatedDeliveryTime: '2022-01-01 10:00',
+            deliveryService: 'Service A',
+            courierStatus: 'delivered',
           },
           {
             id: '2',
-            orderId: '456',
-            status: 'delivered',
-            destination: 'Los Angeles',
-            estimatedDeliveryTime: '2023-06-02 14:00',
-            actualDeliveryTime: '2023-06-02 15:00',
-            deliveryService: 'FedEx',
-            courierStatus: 'Delivered',
+            orderId: '1002',
+            status: 'in_transit',
+            destination: 'City B',
+            estimatedDeliveryTime: '2023-10-01T12:00:00Z',
+            actualDeliveryTime: undefined,
+            deliveryService: 'Service B',
+            courierStatus: 'on the way',
           },
           {
             id: '3',
-            orderId: '789',
-            status: 'pending',
-            destination: 'San Francisco',
-            estimatedDeliveryTime: '2023-06-03 09:00',
-            deliveryService: 'DHL',
-            courierStatus: 'Pending',
-          }
-        ], // Здесь должны быть ваши данные
-        totalCount: 0,
-      });
-    }, 1000);
-  });
-};
+            orderId: '1003',
+            status: 'problem',
+            destination: 'City C',
+            estimatedDeliveryTime: '2023-10-01T14:00:00Z',
+            actualDeliveryTime: undefined,
+            deliveryService: 'Service C',
+            courierStatus: 'delayed',
+          },
+        ],
+        totalCount: 3
+      })
+    }, 1000)
+  })
+}
+
+
+
+
+export interface DeliveryFilters {
+  status?:  'panding' | 'in_transit' | 'delivered' | 'problem';
+  deliveryService?: string;
+  dateRange?: string;
+}
+
+
 
 export const fetchLogisticsSummary = async (timeRange: string) => {
   // Имитация запроса к API
@@ -71,6 +75,7 @@ export const fetchLogisticsSummary = async (timeRange: string) => {
           delivered: 45,
           problem: 5,  
         },
+        
       });
     }, 1000);
   });

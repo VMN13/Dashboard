@@ -4,7 +4,9 @@ import { setDashboardTimeRange } from '../store/dashboardUiSlice';
 
 const TimeRangeSelector: React.FC = () => {
   const dispatch = useDispatch();
-  const timeRange = useSelector((state: any) => state.dashboardUi.dashboardTimeRange);
+  const timeRange = 
+    useSelector((state: any) => 
+      state.dashboardUi.dashboardTimeRange);
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(setDashboardTimeRange(event.target.value as 'today' | 'week' | 'month'));
