@@ -10,7 +10,7 @@ export const Header = () => {
       </h1>
       </Link>
     </div>
-  )
-} 
+  );
+};
 
 export default Header;

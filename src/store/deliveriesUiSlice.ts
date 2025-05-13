@@ -11,7 +11,6 @@ interface DeliveriesUiState {
 
 const initialState: DeliveriesUiState = {
   deliveryFilters: {
-
   },
 };
 

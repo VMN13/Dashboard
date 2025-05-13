@@ -1,17 +1,40 @@
 $font-size1: 3rem;
-$font-color1: lch(23.38% 41.77 290.16);
+$font-sizeH: 5rem;
+$font-size3rem: 3rem;
+$font-size2rem: 2rem;
+$margintop20px: 20px;
+$marginbottom20px: 20px;
+$margintop40px: 40px;
+$marginbottom40px: 40px;
+$border-colorblue: lch(0% 0 0);
+$font-color1: lch(100% 0.01 296.81);
+$font-color2: lch(0% 0 0);
+$background-color2: lch(63.54% 40.01 23.79);
 $font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-$font-weight: 500;
-$background-color1: lch(66.62% 0.01 296.81);
-$opacity1: 0.5; 
+$font-weight500: 500;
+$font-weight300: 300;
+$background-color1: lch(18.57% 0.47 19.09);
+$opacity_09: 0.9;
+$opacity_12: 1.2; 
 $border-solid: 1px solid black;
-$border_radius1: 10px;
-$border_radius2: 20px;
+$border_radius10px: 10px;
+$border_radius20px: 20px;
+$padding10px: 10px;
+$padding20px: 20px;
+$padding30px: 30px;
+$gap20px: 20px;
+$transition: all 3s;
+$filter: blur(10px);
 
 
 @media screen and (max-width: 390px)  {
   @media screen and (orientation: portrait) {
-    
+    h1, h2 {
+  font-family: $font-family;
+  font-weight: $font-weight500;
+  font-size: $font-sizeH;
+  color: white;
+}
 
     html {
       width: 41vh;
@@ -25,29 +48,132 @@ $border_radius2: 20px;
   }
 
  
-  .dashboard {
-    display: flex;
+  .dashboard  {
+    display: none;
     justify-content: center;
     flex-direction: column;
+    width: 20vh; 
   }
+
+  
+
 
   .main {
     display: flex;
     flex-direction: column;
-    
+
   }
 
+canvas.status-chart {
+  cursor: pointer;
+  width: 400px !important;
+  height: 400px !important;
+}
 
 
-  
-  
-  .link {
-    color: $font-color1;
-    font-size: $font-size1;
-    text-decoration: none;
+.dashboard {
+
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  gap: $gap20px;
+  justify-content: center;
+  align-items: center;
+  margin-top:22px;
+  backdrop-filter: blur(60px);
+  .metric-card {
+    display: hidden;
+    margin: auto;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(20px);
+    border-radius: $border_radius20px;
+    padding: 10px;
+    opacity: $opacity_09;
+    transition: 0.5s;
+    opacity: $opacity_12;
+    cursor: default;
     &:hover {
-      text-decoration: underline;
+      opacity: $opacity_12;
     }
   }
+
+  .dashboard-metrics-cards {
+    margin: auto;
+    background-image: url("../public/unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    display: none;
+    justify-content: center;
+    position: static;
+    box-sizing: border-box;
+    font-size: $font-size3rem;
+    font-weight: $font-weight300;
+    color: $font-color1;  
+    height: 180px;
+    margin-right: -160px;
+    text-align: center;
+    margin-top: $margintop20px;
+    justify-content: center;
+    border: $border-solid;
+    border-radius: $border_radius20px;
+    padding: $padding10px;
+    border-color: $border-colorblue;
+  
+    transition: all 1s;
+    cursor:auto;
   }
+}
+
+.choice {
+  font-size: medium;
+  cursor: pointer;
+  padding: $padding10px;
+  border: $border_radius20px;
+  &:hover {
+    text-decoration: none;
+    border: $border_radius20px;
   }
+}
+
+.delivery-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: $margintop20px;
+  margin-bottom: $marginbottom20px;
+  align-content: center;
+  .handle-status-change {
+    font-size: $font-size2rem;
+  }
+  .handle-service-change {
+    font-size: $font-size2rem;
+  }
+}
+
+.dashboard-chart-container {
+  display: flex;
+  justify-content: center;
+}
+
+canvas.status-chart {
+  cursor: pointer;
+  width: 500px !important;
+  height: 500px !important;
+}
+
+.link {
+  color: $font-color1;
+  font-size: $font-size3rem;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+  }
+}
+
+  

@@ -40,11 +40,12 @@ return () => {
           <div className='dashboard-metrics-cards'>
             <Suspense fallback={<div>Loading...</div>}>
             <MetricCard 
-              title="Total Deliveries" 
+              title="Total Deliveries of all time" 
               value={data.totalDeliveries} 
               isLoading={isLoading} />
             </Suspense>
           </div>
+          
       <div className='dashboard-metrics-cards'>
       <Suspense fallback={<div>Loading...</div>}>
         <MetricCard 
@@ -73,16 +74,13 @@ return () => {
               isLoading={isLoading} />
             </Suspense>
           </div>
-
         </div>
-     
-
+        <div className='dashboard-chart-container'>
         <StatusChart 
           data={data.statusDistribution} />
-        
         <TimeRangeSelector />
         </div>
-  
+        </div>
   );
 };
 

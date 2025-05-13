@@ -9,7 +9,6 @@ import Footer from './pages/Footer';
 import MainPage from './pages/Main';
 import NotFound from './pages/NotFound';
 const queryClient = new QueryClient();
-
 const DashboardPage = lazy(() => import('./pages/DashboardPage'));
 const DeliveriesPage = lazy(() => import('./pages/DeliveriesPage'));
 
@@ -35,7 +34,8 @@ const App: React.FC = () => {
     </Routes>
     </Suspense>
     <Footer />
-    <ReactQueryDevtools initialIsOpen={false} />
+    <ReactQueryDevtools 
+      initialIsOpen={false} />
     </div>
     </Router>
     </QueryClientProvider>

@@ -13,24 +13,28 @@ const DeliveriesTable: React.FC<DeliveriesTableProps> = ({ deliveries, isLoading
   }
 
   return (
+    <div className='deliveries-table'>
     <table>
       <thead>
         <tr>
-          <th id='1'>Order ID</th>
-          <th id='2'>Status</th>
-          <th id='3'>Destination</th>
-          <th id='4'>Estimated Delivery Time</th>
-          <th id='5'>Actual Delivery Time</th>
-          <th id='6'>Delivery Service</th>
-          <th id='7'>Courier Status</th>
+          <th>Order ID</th>
+          <th>Status</th>
+          <th>Destination</th>
+          <th>Estimated Delivery Time</th>
+          <th>Actual Delivery Time</th>
+          <th>Delivery Service</th>
+          <th>Courier Status</th>
         </tr>
       </thead>
       <tbody>
       {deliveries?.map((delivery) => (
-          <DeliveryTableRow key={delivery.id} delivery={delivery} />
+          <DeliveryTableRow 
+            key={delivery.id} 
+            delivery={delivery} />
         ))}
       </tbody>
     </table>
+    </div>
   );
 };
 
