@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Suspense, lazy} from 'react';
 import { useQuery } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDeliveriesList, fetchDeliveryServices } from '../api/logisticsApi';
 import DeliveryFilters from '../components/DeliveryFilters';
-import DeliveriesTable from '../components/DeliveriesTable';
-
+const DeliveriesTable = lazy(() => import('../components/DeliveriesTable'));
 const DeliveriesPage: React.FC = () => {
   const dispatch = useDispatch();
   const deliveryFilters = useSelector((state: any) => 
@@ -21,20 +20,21 @@ const DeliveriesPage: React.FC = () => {
   
   if (isLoadingDeliveries || isLoadingServices) 
 
-    return <div>Loading...</div>;
+    return <div className='loader'>Loading...</div>;
 
   if (isErrorDeliveries) {
-    return <div>Error</div>;
+    return <div className='error'>Error</div>;
   }
   
-
   return (
     <div>
       <DeliveryFilters 
         deliveryServices={deliveryServicesData} />
+      <Suspense fallback={<div className='loader'>Loading...</div>}>
       <DeliveriesTable 
         deliveries={deliveriesData?.deliveries} 
         isLoading={isLoadingDeliveries} />
+        </Suspense>
     </div>
   );
 };

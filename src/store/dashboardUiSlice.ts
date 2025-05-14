@@ -2,11 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export type timeRange = 'today' | 'week' |'month';
 
-
 interface DashboardUiState {
   dashboardTimeRange: timeRange;
 }
-
 
 const initialState: DashboardUiState = {
   dashboardTimeRange: 'today',

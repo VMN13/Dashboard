@@ -3,11 +3,10 @@ import { QueryClient, useQuery, useQueryClient } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchLogisticsSummary } from '../api/logisticsApi';
 import TimeRangeSelector from '../components/TimeRangeSelector';
-import StatusChart from '../components/StatusChart';
 import socket from '../components/socket'
 
 const MetricCard = lazy(() => import('../components/MetricCard'));
-
+const StatusChart = lazy(() => import('../components/StatusChart'));
 const DashboardPage: React.FC = () => {
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
@@ -25,11 +24,12 @@ useEffect(() => {
   })
 return () => {
   socket.off('updateDeliveries');
+  socket.disconnect();
 };
 })
 
   if (isLoading)
-      return <div>Loading...</div>;
+      return <div className='loader'>Loading...</div>;
 
   if (isError) return <div>Error loading data</div>;
   
@@ -44,40 +44,49 @@ return () => {
               value={data.totalDeliveries} 
               isLoading={isLoading} />
             </Suspense>
+          
           </div>
           
       <div className='dashboard-metrics-cards'>
+        
       <Suspense fallback={<div>Loading...</div>}>
         <MetricCard 
           title="On Time Percentage" 
           value={`${data.onTimePercentage}%`} 
           isLoading={isLoading} />
         </Suspense>
+        
       </div>
       </div>
         
         <div>
           <div className='dashboard-metrics-cards'>
+            
             <Suspense fallback={<div>Loading...</div>}>
             <MetricCard 
               title="Average Delivery Time" 
               value={data.averageDeliveryTime} 
               isLoading={isLoading} />
             </Suspense>
+           
           </div>
           
           <div className='dashboard-metrics-cards'>
+            
             <Suspense fallback={<div>Loading...</div>}>
             <MetricCard 
               title="Problem Deliveries" 
               value={data.problemDeliveries} 
               isLoading={isLoading} />
             </Suspense>
+           
           </div>
         </div>
         <div className='dashboard-chart-container'>
+        <Suspense fallback={<div>Loading...</div>}>
         <StatusChart 
           data={data.statusDistribution} />
+        </Suspense>
         <TimeRangeSelector />
         </div>
         </div>

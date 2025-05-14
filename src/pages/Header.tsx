@@ -6,7 +6,7 @@ export const Header = () => {
       <Link to="/">
       <h1>
         Dasboard Panel
-        <img src={Assets} alt="logo" height={50} width={50} />
+        <img className='logo' src={Assets} alt="logo" height={50} width={50} />
       </h1>
       </Link>
     </div>

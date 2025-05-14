@@ -1,5 +1,6 @@
 $font-size1: 3rem;
 $font-sizeH: 5rem;
+$font-size25rem: 2.5rem;
 $font-size3rem: 3rem;
 $font-size2rem: 2rem;
 $margintop20px: 20px;
@@ -27,52 +28,81 @@ $transition: all 3s;
 $filter: blur(10px);
 
 
-@media screen and (max-width: 390px)  {
-  @media screen and (orientation: portrait) {
-    h1, h2 {
+@media screen and (min-width: 101px) and (max-width: 1010px)  {
+  .header {
+  height: 15vh;
+  background-image: url("../public/header.jpg");
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: $gap20px;
+  h1 {
+    font-size: $font-size25rem;
+  }
+}
+
+
+h1, h2 {
   font-family: $font-family;
   font-weight: $font-weight500;
   font-size: $font-sizeH;
   color: white;
 }
 
+.footer {
+  height: 11vh;
+  margin-top: 6vh;
+  padding: $padding20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: $gap20px;
+  background-image: url("../public/header.jpg");
+  h1 {
+    font-size: $font-size25rem;
+  }
+}
+  
     html {
-      width: 41vh;
-      margin-left: 20px;
       overflow-x: none;
     }
   
   #root {
+    width: 100%;
     overflow-x: hidden;
-    overflow: auto;
+  }
+  
+  body {
+    width: 100%;
+    overflow-x: hidden;
   }
 
- 
   .dashboard  {
     display: none;
     justify-content: center;
     flex-direction: column;
-    width: 20vh; 
+    width: 0vh; 
   }
 
   
-
-
   .main {
+    justify-content: center;
+    justify-items: center;
     display: flex;
     flex-direction: column;
-
+    text-align: center;
+    margin-top: $margintop40px;
   }
 
-canvas.status-chart {
-  cursor: pointer;
-  width: 400px !important;
-  height: 400px !important;
-}
+  .logo {
+    display: none;
+  }
 
 
 .dashboard {
-
   height: 55vh;
   display: flex;
   flex-direction: column;
@@ -120,13 +150,22 @@ canvas.status-chart {
     border-radius: $border_radius20px;
     padding: $padding10px;
     border-color: $border-colorblue;
-  
     transition: all 1s;
     cursor:auto;
   }
 }
 
+.dashboard-chart-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  text-align: center;
+}
+
+
 .choice {
+  display: flex;
+  justify-content: center;
   font-size: medium;
   cursor: pointer;
   padding: $padding10px;
@@ -154,17 +193,23 @@ canvas.status-chart {
 
 .dashboard-chart-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  width: 20vh;
+  justify-items: center;
+  margin: auto;
+  margin-top: $margintop20px;
 }
 
 canvas.status-chart {
   cursor: pointer;
-  width: 500px !important;
-  height: 500px !important;
+  width: 400px !important;
+  height: 400px !important;
+  margin-left: auto;
 }
 
 .link {
-  color: $font-color1;
+  color: $font-color2;
   font-size: $font-size3rem;
   text-decoration: none;
   &:hover {
@@ -174,6 +219,6 @@ canvas.status-chart {
 
 
   }
-}
+
 
   

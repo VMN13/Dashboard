@@ -1,8 +1,10 @@
 @use './nullstyle.scss';
 @use './tablet.scss';
 @use './laptop.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 //font-size
-$font-sizeH: 5rem;
+$font-size5rem: 5rem;
 $font-size3rem: 3rem;
 $font-size2rem: 2rem;
 //margin
@@ -15,8 +17,10 @@ $border-colorblue: lch(0% 0 0);
 //font-color
 $font-color1: lch(100% 0.01 296.81);
 $font-color2: lch(0% 0 0);
+$font-color3: lch(62.84% 56.65 316.4);
+$font-colorLoader: lch(16.92% 28.5 344.71);
 //background-color
-$background-color2: lch(63.54% 40.01 23.79);
+$background-color2: lch(62.84% 56.65 316.4);
 $background-color1: lch(18.57% 0.47 19.09);
 //font-family
 $font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -41,56 +45,42 @@ $transition: all 3s;
 $filter: blur(10px);
 
 
-html {
-  background-color: rgb(255, 255, 255);
-}
-
-.header {
-  height: 15vh;
-  background-image: url("../public/header.jpg");
+.loader {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  gap: $gap20px;
+  text-align: center;
+  color: $font-colorLoader;
+  font-size: $font-size5rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.footer {
-  height: 11vh;
-  margin-top: 6vh;
-  background-image: url("../public/header.jpg");
-  h1 {
-    font-size: $font-size3rem;
-  }
-}
-
-.main, .deliveries, .dashboard,  .footer {
+.error {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-}
-
-.link {
-  color: $font-color2;
-  font-size: $font-size3rem;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-
-
-
-h1, h2 {
-  font-family: $font-family;
-  font-weight: $font-weight500;
-  font-size: $font-sizeH;
-  color: white;
+  text-align: center;
+  color: red;
+  font-size: $font-size2rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @media screen and (min-width: 1390px)  {
+html {
+  max-width: 100%;
+  background-color: rgb(255, 255, 255)''
+}
+h1, h2 {
+  font-family: $font-family;
+  font-weight: $font-weight500;
+  font-size: $font-size5rem;
+  color: white;
+  &:hover {
+    color: $font-color3;
+  }
+}
 
 .main, .deliveries, .dashboard,  .footer {
   display: flex;
@@ -137,8 +127,12 @@ h1, h2 {
   backdrop-filter: blur(60px);
   .metric-card {
     margin: auto;
+    text-align: center;
+    font-size: $font-size3rem;
+    font-weight: $font-weight500;
+    margin-top: -10px;
+    height: 180px;
     width: auto;
-    
     backdrop-filter: blur(20px);
     border-radius: $border_radius20px;
     padding: 10px;
@@ -151,6 +145,8 @@ h1, h2 {
       backdrop-filter: blur(20px);
     }
   }
+
+
 
   .dashboard-metrics-cards {
     background-image: url("../public/unsplash.jpg");
@@ -178,6 +174,8 @@ h1, h2 {
     
   }
 }
+
+
 
 .choice {
   font-size: medium;
@@ -263,11 +261,21 @@ td {
   }
 }
 
+.dashboard-chart-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
 
-  #root {
-    overflow-x: hidden;
-    overflow: auto;
-  }
+.choice {
+  margin-bottom: $marginbottom40px;
+  font-size: $font-size2rem;
+  padding: $padding10px;
+  border: $border_radius20px;
+  text-align: center;
+}
+
 }
 
 
