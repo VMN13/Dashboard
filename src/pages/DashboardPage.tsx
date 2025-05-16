@@ -29,16 +29,16 @@ return () => {
 })
 
   if (isLoading)
-      return <div className='loader'>Loading...</div>;
+      return <div className='loader'><div className="lds-facebook"><div></div><div></div><div></div></div></div>;
 
-  if (isError) return <div>Error loading data</div>;
+  if (isError) return <div className='error'>Error loading data</div>;
   
   return (
     
     <div className='dashboard'>
         <div>
           <div className='dashboard-metrics-cards'>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className='loading'><div className="lds-facebook"><div></div><div></div><div></div></div></div>}>
             <MetricCard 
               title="Total Deliveries of all time" 
               value={data.totalDeliveries} 
@@ -49,7 +49,7 @@ return () => {
           
       <div className='dashboard-metrics-cards'>
         
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div className="lds-facebook"><div></div><div></div><div></div></div>}>
         <MetricCard 
           title="On Time Percentage" 
           value={`${data.onTimePercentage}%`} 
@@ -61,19 +61,19 @@ return () => {
         
         <div>
           <div className='dashboard-metrics-cards'>
-            
-            <Suspense fallback={<div>Loading...</div>}>
+            <div className='dashboard-container'>
+            <Suspense fallback={<div className="lds-facebook"><div></div><div></div><div></div></div>}>
             <MetricCard 
               title="Average Delivery Time" 
               value={data.averageDeliveryTime} 
               isLoading={isLoading} />
             </Suspense>
-           
+           </div>
           </div>
           
           <div className='dashboard-metrics-cards'>
             
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div className="lds-facebook"><div></div><div></div><div></div></div>}>
             <MetricCard 
               title="Problem Deliveries" 
               value={data.problemDeliveries} 
@@ -83,12 +83,16 @@ return () => {
           </div>
         </div>
         <div className='dashboard-chart-container'>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="lds-facebook"><div></div><div></div><div></div></div>}>
+        <div className='chart-container'>
         <StatusChart 
           data={data.statusDistribution} />
-        </Suspense>
-        <TimeRangeSelector />
         </div>
+        </Suspense>
+       
+        </div>
+        <TimeRangeSelector />
+        
         </div>
   );
 };

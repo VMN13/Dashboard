@@ -1,5 +1,5 @@
 //font-size
-$font-sizeH: 5rem;
+$font-size5rem: 5rem;
 $font-size3rem: 3rem;
 $font-size2rem: 2rem;
 //margin
@@ -12,6 +12,7 @@ $border-colorblue: lch(0% 0 0);
 //font-color
 $font-color1: lch(100% 0.01 296.81);
 $font-color2: lch(0% 0 0);
+$font-color3: lch(62.84% 56.65 316.4);
 //background-color
 $background-color2: lch(63.54% 40.01 23.79);
 $background-color1: lch(18.57% 0.47 19.09);
@@ -41,6 +42,17 @@ $filter: blur(10px);
 
 
 @media screen and (min-width: 900px) {
+
+h1, h2 {
+  font-family: $font-family;
+  font-weight: $font-weight500;
+  font-size: $font-size5rem;
+  color: white;
+  &:hover {
+    color: $font-color3;
+  }
+}
+
 .main, .deliveries, .dashboard,  .footer {
   display: flex;
   flex-direction: row;
@@ -50,7 +62,6 @@ $filter: blur(10px);
 
 .header {
   height: 15vh;
-  background-image: url("../public/header.jpg");
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -61,7 +72,6 @@ $filter: blur(10px);
 .footer {
   height: 11vh;
   margin-top: 6vh;
-  background-image: url("../public/header.jpg");
   h1 {
     font-size: $font-size3rem;
   }
@@ -161,7 +171,6 @@ canvas.status-chart {
 }
 
 .link {
-  color: $font-color2;
   font-size: $font-size3rem;
   text-decoration: none;
   &:hover {

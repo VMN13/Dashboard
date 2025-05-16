@@ -20,7 +20,7 @@ const DeliveriesPage: React.FC = () => {
   
   if (isLoadingDeliveries || isLoadingServices) 
 
-    return <div className='loader'>Loading...</div>;
+    return <div className="lds-facebook"><div></div><div></div><div></div></div>;
 
   if (isErrorDeliveries) {
     return <div className='error'>Error</div>;
@@ -30,7 +30,7 @@ const DeliveriesPage: React.FC = () => {
     <div>
       <DeliveryFilters 
         deliveryServices={deliveryServicesData} />
-      <Suspense fallback={<div className='loader'>Loading...</div>}>
+      <Suspense fallback={<div className="lds-facebook"><div></div><div></div><div></div></div>}>
       <DeliveriesTable 
         deliveries={deliveriesData?.deliveries} 
         isLoading={isLoadingDeliveries} />

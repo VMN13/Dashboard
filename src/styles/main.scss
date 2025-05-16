@@ -1,7 +1,6 @@
 @use './nullstyle.scss';
 @use './tablet.scss';
 @use './laptop.scss';
-
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 //font-size
 $font-size5rem: 5rem;
@@ -20,6 +19,8 @@ $font-color2: lch(0% 0 0);
 $font-color3: lch(62.84% 56.65 316.4);
 $font-colorLoader: lch(16.92% 28.5 344.71);
 //background-color
+$background-white: white;
+$background-black: black;
 $background-color2: lch(62.84% 56.65 316.4);
 $background-color1: lch(18.57% 0.47 19.09);
 //font-family
@@ -44,6 +45,127 @@ $gap20px: 20px;
 $transition: all 3s;
 $filter: blur(10px);
 
+:root {
+  --background-color: white;
+  --text-color: black;
+
+}
+
+[data-theme='light'] {
+  --background-color: white;
+  --text-color: black;
+  
+}
+
+[data-theme='dark'] {
+  --background-color: rgb(30, 28, 28);
+  --text-color: white;
+ 
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.7s ease, color 0.7s ease;
+}
+
+.link {
+  color: var(--text-color);
+ 
+}
+
+.theme-toggle {
+  z-index: 1  ;
+  width: 50px;
+  height: 50px;
+  top: 6px;
+  position: fixed;
+  border-radius: $border_radius10px;
+  [data-theme='light'] & {
+    background-image: url("../public/dark.svg");
+    background-image: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    color: rgba(0, 0, 0, 0);
+    transition: 0.5s;
+      &:hover {
+      
+      background-image: url("../public/dark_hover.svg");
+      background-color: $background-color1;
+      transition: 0.5s;
+    }
+  }
+
+
+  [data-theme='dark'] & {
+    background-image: url("../public/light.svg");
+    background-image: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: $background-white;
+    color: rgba(0, 0, 0, 0);
+    transition: 0.5s;
+    &:hover {
+      background-image: url("../public/light_hover.svg");
+      background-color: $background-color1;
+      transition: 0.5s;
+    }
+  }
+}
+
+
+.lds-facebook,
+.lds-facebook div {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  justify-items: center;
+}
+.lds-facebook {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: currentColor;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0s;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 164px;
+  }
+  50%, 100% {
+    
+    top: 24px;
+    height: 32px;
+  }
+}
+
+
+
 
 .loader {
   display: flex;
@@ -54,6 +176,7 @@ $filter: blur(10px);
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
   font-style: normal;
+  text-transform: uppercase;
 }
 
 .error {
@@ -70,16 +193,13 @@ $filter: blur(10px);
 @media screen and (min-width: 1390px)  {
 html {
   max-width: 100%;
-  background-color: rgb(255, 255, 255)''
 }
 h1, h2 {
   font-family: $font-family;
   font-weight: $font-weight500;
   font-size: $font-size5rem;
-  color: white;
-  &:hover {
-    color: $font-color3;
-  }
+  letter-spacing: 10px;
+ 
 }
 
 .main, .deliveries, .dashboard,  .footer {
@@ -91,20 +211,85 @@ h1, h2 {
 
 .header {
   height: 15vh;
-  background-image: url("../public/header.jpg");
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: $gap20px;
+  background: $background-white;
+  [data-theme='dark'] & {
+    background: $background-black;
+    color: rgb(0, 0, 0);
+    h1 {
+      color: $font-color1;
+        
+    }
+  } 
+  [data-theme='light'] & {
+    
+    background: $background-white;
+    border: 1px solid lch(18.57% 0.47 19.09) ;
+    background-image: url("../public/unsplashwhite.jpg");
+    background-color: rgba(255, 255, 255, 0.681);
+    backdrop-filter: blur(60px);
+    color: lch(18.57% 0.47 19.09);
+    h1 {
+      color: lch(18.57% 0.47 19.09);
+        }
+  }
+.header-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+ background-color: rgba(32, 32, 32, 0.226);
+  backdrop-filter: blur(60px);
+  
+  display: flex;
+}
 }
 
-.footer {
+.footer{
   height: 11vh;
   margin-top: 6vh;
-  background-image: url("../public/header.jpg");
+    background: $background-black;
   h1 {
     font-size: $font-size3rem;
+  }
+ 
+[data-theme='dark'] & {
+    background: $background-black;
+    color: rgb(0, 0, 0);
+    h1 {
+      color: $font-color1;
+        
+    }
+  } 
+  [data-theme='light'] & {
+    
+    background: $background-white;
+    border: 1px solid lch(18.57% 0.47 19.09) ;
+    background-image: url("../public/unsplashwhite.jpg");
+    background-color: rgba(255, 255, 255, 0.681);
+    backdrop-filter: blur(60px);
+    color: lch(18.57% 0.47 19.09);
+    h1 {
+      color: lch(18.57% 0.47 19.09);
+        }
+  }
+
+  .footer-container {
+    width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(32, 32, 32, 0.226);
+  backdrop-filter: blur(60px);
+  display: flex;
   }
 }
 
@@ -126,7 +311,8 @@ h1, h2 {
   margin-top:22px;
   backdrop-filter: blur(60px);
   .metric-card {
-    margin: auto;
+    [data-theme='dark'] & {
+      margin: auto;
     text-align: center;
     font-size: $font-size3rem;
     font-weight: $font-weight500;
@@ -144,11 +330,36 @@ h1, h2 {
       background-color: rgba(10, 8, 10, 0.526);
       backdrop-filter: blur(20px);
     }
+    }
+    [data-theme='light'] & {  
+        margin: auto;
+    text-align: center;
+    font-size: $font-size3rem;
+    font-weight: $font-weight500;
+    margin-top: -10px;
+    height: 180px;
+    width: auto;
+    color: black;
+    backdrop-filter: blur(20px);
+    border-radius: $border_radius20px;
+    padding: 10px;
+    opacity: $opacity_09;
+    transition: 0.5s;
+    background-color: rgba(32, 32, 32, 0.226);
+      backdrop-filter: blur(10px);
+    opacity: $opacity_12;
+    cursor: default;
+    &:hover {
+      
+      background-color: rgba(255, 5, 5, 0);
+      backdrop-filter: blur(10px);
+    }
+    }
   }
 
-
-
-  .dashboard-metrics-cards {
+  .dashboard-metrics-cards { 
+    backdrop-filter: blur(60px);
+    [data-theme='dark'] & {
     background-image: url("../public/unsplash.jpg");
     background-size: cover;
     background-position: center;
@@ -172,13 +383,58 @@ h1, h2 {
     transition: all 1s;
     cursor:auto;
     
+    }
+   [data-theme='light'] & {
+      background-image: url("../public/unsplashwhite.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 400px;
+    display: flex;
+    position: static;
+    box-sizing: border-box;
+    font-size: $font-size3rem;
+    font-weight: $font-weight300;
+    color: $font-color1;  
+    height: 180px;
+    text-align: center;
+    margin-top: $margintop20px;
+    justify-content: center;
+    border: $border-solid;
+    border-radius: $border_radius20px;
+    padding: $padding10px;
+    border-color: $border-colorblue;
+    padding-left: 0px;
+    padding-right: 0px; 
+    transition: all 1s;
+    cursor:auto;
+   }
+
   }
+  
 }
 
-
-
 .choice {
-  font-size: medium;
+
+  border-radius: 20px;
+  width: 120px;
+  height: 50px;
+  background-color: $background-color2;
+  [data-theme='dark'] & {
+  background-image: url("../public/unsplash.jpg");
+  color: white;
+  cursor: pointer;
+  padding: $padding10px;
+  border: $border_radius20px;
+
+  &:hover {
+    text-decoration: none;
+    border: $border_radius20px;
+   
+  }
+  }
+  [data-theme='light'] & {
+  background-image: url("../public/unsplashwhite.jpg");
+  color: white;
   cursor: pointer;
   padding: $padding10px;
   border: $border_radius20px;
@@ -187,8 +443,10 @@ h1, h2 {
     border: $border_radius20px;
   }
 }
+}
 
 .delivery-filters {
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,10 +454,18 @@ h1, h2 {
   margin-bottom: $marginbottom20px;
   align-content: center;
   .handle-status-change {
-    font-size: $font-size2rem;
+    font-size: $font-size2rem;  
+    border-radius: $border_radius10px;
+    [data-theme='dark'] & {
+      background-color: $background-color1;
+      color: $background-white;
+      cursor: pointer;
+    }
   }
   .handle-service-change {
+    border-radius: $border_radius10px;
     font-size: $font-size2rem;
+    cursor: pointer;
   }
 }
 
@@ -207,10 +473,35 @@ canvas.status-chart {
   cursor: pointer;
   width: 500px !important;
   height: 500px !important;
+   backdrop-filter: blur(20px);
+  border-radius: $border_radius20px;
+  filter: opacity(0.8);
+
+ 
 }
 
+.dashboard-chart-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  [data-theme='dark'] & {
+      background-image: url('../public/unsplash.jpg');
+  backdrop-filter: blur(20px);
+  border-radius: $border_radius20px;
+  }
+  [data-theme='light'] & {
+      background-image: url('../public/unsplashwhite.jpg');
+  backdrop-filter: blur(20px);
+  border-radius: $border_radius20px;
+  }
+ 
+}
+
+
+
+
 .link {
-  color: $font-color2;
   font-size: $font-size3rem;
   text-decoration: none;
   &:hover {
@@ -230,13 +521,11 @@ table {
 
 tbody {
   margin-right: 20px;
-  border: $border-solid;
-  
+  border: $border-solid; 
   font-size: $font-size2rem;
 }
 
 th {
-  
   border: $border-solid;
   color: $font-color1;
   border: $border_radius20px;
@@ -245,7 +534,6 @@ th {
   background-image: url("../public/deliveries.jpg");
   text-align: center;
   border-radius: $border_radius20px;
-
 }
 
 td {
@@ -261,12 +549,6 @@ td {
   }
 }
 
-.dashboard-chart-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
 
 .choice {
   margin-bottom: $marginbottom40px;
@@ -275,7 +557,6 @@ td {
   border: $border_radius20px;
   text-align: center;
 }
-
 }
 
 
