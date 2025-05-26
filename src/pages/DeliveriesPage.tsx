@@ -3,11 +3,14 @@ import { useQuery } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDeliveriesList, fetchDeliveryServices } from '../api/logisticsApi';
 import DeliveryFilters from '../components/DeliveryFilters';
+import { useMockWebSocket } from '../hooks/useMockWebSocket';
 const DeliveriesTable = lazy(() => import('../components/DeliveriesTable'));
 const DeliveriesPage: React.FC = () => {
   const dispatch = useDispatch();
   const deliveryFilters = useSelector((state: any) => 
       state.deliveriesUi.deliveryFilters);
+
+   useMockWebSocket();
 
   const { data: deliveriesData, isLoading: isLoadingDeliveries, isError: isErrorDeliveries } = 
     useQuery(['deliveriesList', deliveryFilters], 

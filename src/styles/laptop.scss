@@ -151,6 +151,7 @@ h1, h2 {
 
 .delivery-filters {
   display: flex;
+  
   justify-content: center;
   align-items: center;
   margin-top: $margintop20px;
@@ -158,6 +159,7 @@ h1, h2 {
   align-content: center;
   .handle-status-change {
     font-size: $font-size2rem;
+   
   }
   .handle-service-change {
     font-size: $font-size2rem;

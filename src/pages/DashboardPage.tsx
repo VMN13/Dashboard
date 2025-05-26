@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchLogisticsSummary } from '../api/logisticsApi';
 import TimeRangeSelector from '../components/TimeRangeSelector';
 import socket from '../components/socket'
+import { useMockWebSocket } from '../hooks/useMockWebSocket';
 
 const MetricCard = lazy(() => import('../components/MetricCard'));
 const StatusChart = lazy(() => import('../components/StatusChart'));
@@ -27,6 +28,8 @@ return () => {
   socket.disconnect();
 };
 })
+
+ useMockWebSocket();
 
   if (isLoading)
       return <div className='loader'><div className="lds-facebook"><div></div><div></div><div></div></div></div>;
