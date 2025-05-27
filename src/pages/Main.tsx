@@ -5,12 +5,16 @@ export const MainPage = () => {
     <div className="main">
       <div>
       <Link 
+        role="button"
+        tabIndex={0}
         className="link" 
-        to="/deliveries">Deliveries
+        to="/deliveries">Deliveries           
       </Link>
       </div>
       <div>
       <Link 
+        role="button"
+        tabIndex={1}
         className="link" 
         to="/">Dashboard
       </Link>

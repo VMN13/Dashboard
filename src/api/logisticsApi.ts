@@ -95,7 +95,7 @@ export const fetchLogisticsSummary = async (timeRange: 'today' | 'week' | 'month
             problem: 5,  
           },
         },
-       week: {
+        week: {
           totalDeliveries: 1000,
           onTimePercentage: 85,
           averageDeliveryTime: '1 hour',

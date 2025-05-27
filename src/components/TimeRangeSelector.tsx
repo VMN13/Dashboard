@@ -12,11 +12,25 @@ const TimeRangeSelector: React.FC = () => {
   };
 
   return (
-    <select className='choice' value={dashboardTimeRange} onChange={handleChange}>
-      <option value="today">Today</option>
-      <option value="week">Week</option>
-      <option value="month">Month</option>
-    </select>
+    <>
+    <div className='time-range-selector'>
+    <button 
+      className='choice' 
+      onClick={() => dispatch(setDashboardTimeRange('today'))}>
+        Today
+    </button>
+    <button 
+      className='choice' 
+      onClick={() => dispatch(setDashboardTimeRange('week'))}>
+        Week
+    </button>
+    <button 
+      className='choice' 
+      onClick={() => dispatch(setDashboardTimeRange('month'))}>
+        Month
+    </button>
+    </div>
+    </>
   );
 };
 

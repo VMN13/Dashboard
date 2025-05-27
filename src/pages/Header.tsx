@@ -1,16 +1,17 @@
-import Assets from '../assets/schedule.svg';
+import Logo from '../public/logo.jpg';
 import { Link } from "react-router-dom";
 export const Header = () => {
   return (
-     
     <div className="header">  
-     <div className='header-container'>
+      <div className='header-container'>
       <Link to="/">
       <h1>
         Dasboard Panel
-        <img className='logo' src={Assets} alt="logo" height={50} width={50} />
       </h1>
       </Link>
+      </div>
+      <div>
+      <img className='logo' src={Logo} alt="logo" height={120} width={120} />
       </div>
     </div>
   );

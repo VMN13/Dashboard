@@ -69,13 +69,7 @@ h1, h2 {
   gap: $gap20px;
 }
 
-.footer {
-  height: 11vh;
-  margin-top: 6vh;
-  h1 {
-    font-size: $font-size3rem;
-  }
-}
+
 
 .main {
   display: flex;
@@ -86,13 +80,14 @@ h1, h2 {
 }
 
 .dashboard {
+  
   height: 55vh;
   display: flex;
   flex-direction: row;
   gap: $gap20px;
   justify-content: center;
   align-items: center;
-  margin-top:22px;
+  
   backdrop-filter: blur(60px);
   .metric-card {
     margin: auto;

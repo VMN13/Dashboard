@@ -1,4 +1,4 @@
-import React, { Suspense , lazy, useEffect } from 'react';
+import React, { Suspense , lazy, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from './store';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -11,11 +11,12 @@ import Footer from './pages/Footer';
 import MainPage from './pages/Main';
 import NotFound from './pages/NotFound';
 import ThemeToggle from './components/ThemeToggle';
+import CookieConsentPopup from './components/CookieConsentPopup';
+import AuthForm from './components/authform/AuthForm';
 const queryClient = new QueryClient();
 const DashboardPage = lazy(() => import('./pages/DashboardPage'));
 const DeliveriesPage = lazy(() => import('./pages/DeliveriesPage'));
   
-
 
 const App: React.FC = () => {
   const currentTheme = useSelector((state: RootState) => state.theme.сurrentTheme);
@@ -30,7 +31,8 @@ const App: React.FC = () => {
     <QueryClientProvider client={queryClient}>
     <Router>
     <Header />
-
+    
+      <CookieConsentPopup />
     <div className="app">
     <MainPage />
     <Suspense fallback={

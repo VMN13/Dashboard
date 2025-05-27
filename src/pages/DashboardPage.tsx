@@ -84,18 +84,24 @@ return () => {
             </Suspense>
            
           </div>
+          
         </div>
+        <div className='dashboard_chart'>
+       
         <div className='dashboard-chart-container'>
         <Suspense fallback={<div className="lds-facebook"><div></div><div></div><div></div></div>}>
         <div className='chart-container'>
+          
         <StatusChart 
           data={data.statusDistribution} />
         </div>
+    
         </Suspense>
-       
-        </div>
-        <TimeRangeSelector />
         
+         </div>
+          <TimeRangeSelector />
+        </div>
+       
         </div>
   );
 };
