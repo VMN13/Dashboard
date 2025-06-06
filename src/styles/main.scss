@@ -502,7 +502,7 @@ h1, h2 {
     font-size: $font-size3rem;
     font-weight: $font-weight300;
     color: $font-color1;  
-    height: 13rem;
+    height: 204px;
     text-align: center;
     margin-top: 2rem;
     justify-content: center;
@@ -516,6 +516,7 @@ h1, h2 {
     cursor:auto;
     }
 
+
     [data-theme='light'] & {
       background-image: url("../public/unsplashwhite.jpg");
       background-size: cover;
@@ -527,7 +528,7 @@ h1, h2 {
       font-size: $font-size3rem;
       font-weight: $font-weight300;
       color: $font-color1;  
-      height: 13rem;
+      height: 204px;
       text-align: center;
       margin-top: 2rem;
       justify-content: center;
@@ -541,6 +542,62 @@ h1, h2 {
       cursor:auto;
     }
   }
+}
+
+.dashboard-metrics-card_problem {
+  backdrop-filter: blur(60px);
+    [data-theme='dark'] & {
+    background-image: url("../public/unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 30rem;
+    display: flex;
+    position: static;
+    box-sizing: border-box;
+    font-size: $font-size3rem;
+    font-weight: $font-weight300;
+    color: $font-color1;  
+    height: 204px;
+    letter-spacing: 10px;
+    text-align: center;
+    margin-top: 2rem;
+    justify-content: center;
+    border: $border-solid;
+    border-radius: $border_radius20px;
+    padding: $padding10px;
+    border-color: $border-colorblue;
+    padding-left: 0px;
+    padding-right: 0px; 
+    transition: all 1s;
+    cursor:auto;
+    }
+
+
+    [data-theme='light'] & {
+      background-image: url("../public/unsplashwhite.jpg");
+      background-size: cover;
+      background-position: center;
+      width: 30rem;
+      display: flex;
+      position: static;
+      box-sizing: border-box;
+      font-size: $font-size3rem;
+      font-weight: $font-weight300;
+      color: $font-color1;  
+      height: 204px;
+      text-align: center;
+      margin-top: 2rem;
+      justify-content: center;
+      border: $border-solid;
+      border-radius: $border_radius20px;
+      padding: $padding10px;
+      border-color: $border-colorblue;
+      padding-left: 0px;
+      padding-right: 0px; 
+      transition: all 1s;
+      cursor:auto;
+    }
+  
 }
 
 .time-range-selector {
@@ -563,6 +620,7 @@ h1, h2 {
   height: 60px;
   background-color: $background-color2;
   [data-theme='dark'] & {
+
   background-image: url("../public/unsplash.jpg");
   color: white;
   cursor: pointer;
@@ -571,6 +629,7 @@ h1, h2 {
   &:hover {
     text-decoration: none;
     border: $border_radius20px;
+    color: red;
   }
   }
   [data-theme='light'] & {
@@ -581,8 +640,8 @@ h1, h2 {
   border: $border_radius20px;
   border: solid black;
   &:hover {
-    text-decoration: none;
-    border: $border_radius20px;
+    border: solid black;
+    color: red;
   }
 }
 }

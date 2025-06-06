@@ -192,6 +192,14 @@ h1, h2 {
     }
   }
 
+.dashboard_chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
   .dashboard-metrics-cards {
     margin: auto;
     background-image: url("../public/unsplash.jpg");

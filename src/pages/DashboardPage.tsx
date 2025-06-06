@@ -74,7 +74,7 @@ return () => {
            </div>
           </div>
           
-          <div className='dashboard-metrics-cards'>
+          <div className='dashboard-metrics-card_problem'>
             
             <Suspense fallback={<div className="lds-facebook"><div></div><div></div><div></div></div>}>
             <MetricCard 
@@ -82,7 +82,6 @@ return () => {
               value={data.problemDeliveries} 
               isLoading={isLoading} />
             </Suspense>
-           
           </div>
           
         </div>
